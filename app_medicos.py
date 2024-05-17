@@ -8,14 +8,17 @@ app = FastAPI()
 router = APIRouter()
 
 # Configuración de CORS
+origins = [
+    "http://52.72.247.76:8000",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://ln-proyecto-1685771317.us-east-1.elb.amazonaws.com:8014"],  # Ajusta esto al host de tu frontend
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Detalles de la base de datos
 host_name = "3.219.70.47"
 port_number = "8005"
